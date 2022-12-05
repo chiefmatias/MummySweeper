@@ -120,16 +120,16 @@ class Cell:
         if not self.is_open:
             self.is_open = True
             self.cell_btn_object.configure(bg = "red")
-            
+
             for cell in self.all:
                 if cell.is_mine:
                     cell.show_mine()
-                    
+
                 else:
+                    if cell.is_flagged:
+                        cell.is_flagged = False
+                        #cell.cell_btn_object.configure(bg = "white")
                     cell.show_cell()
-                
-                self.cell_btn_object.unbind("<Button 1>")
-                self.cell_btn_object.unbind("<Button 3>")
 
             
         
